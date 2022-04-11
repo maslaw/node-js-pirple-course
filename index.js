@@ -1,9 +1,37 @@
+const fs = require('fs');
 const http = require('http');
+const https = require('https');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 
-const server = http.createServer(function (req, res) {
+// Instantiate the HTTP server
+const httpServer = http.createServer((req, res) => {
+  unifiedServer(req, res);
+});
+
+// Start the HTTP server
+httpServer.listen(config.httpPort, () => {
+  console.log(`Ther server is listening on port ${config.httpPort}`);
+});
+
+// Instantiate the HTTPS server
+const httpsServerOption = {
+  key: fs.readFileSync('./https/key.pem'),
+  cert: fs.readFileSync('./https/cert.pem')
+};
+
+const httpsServer = https.createServer(httpsServerOption, (req, res) => {
+  unifiedServer(req, res);
+});
+
+// Start the HTTPS server
+httpsServer.listen(config.httpsPort, () => {
+  console.log(`Ther server is listening on port ${config.httpsPort}`);
+});
+
+// All the server logic for both http and https servers
+const unifiedServer = (req, res) => {
   // Get the url and parse it.
   // With second argument equal 'false', query string will be parsed as string: testParam=testValue, testParam=testValue&anotherParam=anotherValue.
   // With secong argument equal 'true', query string will be parsed as key-value object: {testParam: 'testValue'}, {testParam: 'testValue', anotherParam: 'anotherValue'}
@@ -65,11 +93,7 @@ const server = http.createServer(function (req, res) {
       console.log(`Returning this response: statusCode=${statusCode}, payloadString=${payloadString}`);
     });
   });
-});
-
-server.listen(config.port, () => {
-  console.log(`Ther server is listening on port ${config.port} in ${config.envName} mode`);
-});
+};
 
 // Define the handlers
 const handlers = {};
