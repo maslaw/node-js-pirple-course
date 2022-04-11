@@ -7,14 +7,16 @@ const server = http.createServer(function (req, res) {
 
   // Get the path
   const path = parsedUrl.pathname;
-	console.log('path', path);
 	const trimmedPath = path.replace(/^\/+|\/+$/g, '');
-	console.log('trimmedPath', trimmedPath);
+
+  // Get HTTP method
+  const method = req.method.toLowerCase();
 
   // Send the response
   res.end('Hello World!\n');
 
   // Log the request path
+  console.log(`Request received on path: ${trimmedPath}, with method: ${method}`);
 });
 
 server.listen(3000, () => {
