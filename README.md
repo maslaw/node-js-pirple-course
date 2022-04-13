@@ -35,6 +35,8 @@
 11. **Service 1: /ping** [[branch](https://github.com/maslaw/node-js-pirple-course/tree/step-11-service_1_ping)] [[commit](https://github.com/maslaw/node-js-pirple-course/commit/a330f7878db16c963e1603ba9fe8d62f84dc8996)]
 
 
+12. **Storing Data** [[branch](https://github.com/maslaw/node-js-pirple-course/tree/step-12-storing-data)] [[commit](https://github.com/maslaw/node-js-pirple-course/commit/51eda15b6a131883af3b783b10d4b9dc98f0e500)]
+
 
 
 
