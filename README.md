@@ -38,6 +38,8 @@
 12. **Storing Data** [[branch](https://github.com/maslaw/node-js-pirple-course/tree/step-12-storing-data)] [[commit](https://github.com/maslaw/node-js-pirple-course/commit/51eda15b6a131883af3b783b10d4b9dc98f0e500)]
 
 
+13. **Service 2: /users** [[branch](https://github.com/maslaw/node-js-pirple-course/tree/step-13-service_2_users)] [[commit](https://github.com/maslaw/node-js-pirple-course/commit/7c7471dd7835025d28a1b633db7c58688c297698)]
+
 
 
 
